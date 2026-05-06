@@ -1,0 +1,45 @@
+<section class="container">
+    <h1>Produk Kami</h1>
+
+    <div class="produk">
+        <h3>Makanan Kucing Premium</h3>
+        <p>Rp 50.000</p>
+        <button onclick="tambahKeranjang('Makanan Kucing Premium',50000)">Tambah</button>
+    </div>
+
+    <div class="produk">
+        <h3>Makanan Anjing Nutrisi Tinggi</h3>
+        <p>Rp 75.000</p>
+        <button onclick="tambahKeranjang('Makanan Anjing Nutrisi Tinggi',75000)">Tambah</button>
+    </div>
+
+    <div class="produk">
+        <h3>Pakan Ikan Hias</h3>
+        <p>Rp 25.000</p>
+        <button onclick="tambahKeranjang('Pakan Ikan Hias',25000)">Tambah</button>
+    </div>
+
+    <div class="produk">
+        <h3>Pakan Burung</h3>
+        <p>Rp 30.000</p>
+        <button onclick="tambahKeranjang('Pakan Burung',30000)">Tambah</button>
+    </div>
+
+    <div class="produk">
+        <h3>Snack Hewan</h3>
+        <p>Rp 20.000</p>
+        <button onclick="tambahKeranjang('Snack Hewan',20000)">Tambah</button>
+    </div>
+
+    <br>
+    <a href="keranjang.html">🛒 Lihat Keranjang</a>
+</section>
+
+<script>
+function tambahKeranjang(nama, harga) {
+    let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+    keranjang.push({nama, harga});
+    localStorage.setItem("keranjang", JSON.stringify(keranjang));
+    alert("Produk ditambahkan!");
+}
+</script>
