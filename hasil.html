@@ -1,0 +1,30 @@
+<h2>Data Responden</h2>
+<p>Nama: <span id="nama"></span></p>
+<p>Email: <span id="email"></span></p>
+
+<h2>Pesanan Anda</h2>
+<ul id="pesanan"></ul>
+<h3>Total: Rp <span id="total"></span></h3>
+
+<script>
+let responden = JSON.parse(localStorage.getItem("responden"));
+let keranjang = JSON.parse(localStorage.getItem("keranjang")) || [];
+
+document.getElementById("nama").innerText = responden.nama;
+document.getElementById("email").innerText = responden.email;
+
+let total = 0;
+let list = document.getElementById("pesanan");
+
+keranjang.forEach(item => {
+    let li = document.createElement("li");
+    li.innerText = item.nama + " - Rp " + item.harga;
+    list.appendChild(li);
+    total += item.harga;
+});
+
+document.getElementById("total").innerText = total;
+
+// reset keranjang setelah selesai
+localStorage.removeItem("keranjang");
+</script>
